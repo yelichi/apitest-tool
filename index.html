@@ -273,105 +273,255 @@
         </div>
     </section>
 
-    <!-- 时间标签详细说明 -->
+    <!-- 修改tag-detail-section部分 -->
     <section class="tag-detail-section">
-      <div class="container">
-          <h2 class="section-title">时间标签详细说明</h2>
-          <div class="tag-detail-content">
-              <div class="detail-card">
-                  <h3><i class="fas fa-clock"></i> @SystemTime 标签</h3>
-                  <div class="detail-info">
-                      <h4>语法格式：</h4>
-                      <code class="detail-code">(@SystemTime(pattern)@SystemTime)</code>
-                      
-                      <h4>参数说明：</h4>
-                      <ul class="param-list">
-                          <li><strong>pattern</strong>：时间格式模式（可选）</li>
-                          <li>默认格式：<code>YYYY-MM-DD HH:mm:ss</code></li>
-                      </ul>
-                      
-                      <h4>支持的格式字符：</h4>
-                      <div class="format-table">
-                          <div class="format-row">
-                              <div class="format-col"><strong>字符</strong></div>
-                              <div class="format-col"><strong>说明</strong></div>
-                              <div class="format-col"><strong>示例</strong></div>
-                          </div>
-                          <div class="format-row">
-                              <div class="format-col">YYYY</div>
-                              <div class="format-col">4位年份</div>
-                              <div class="format-col">2024</div>
-                          </div>
-                          <div class="format-row">
-                              <div class="format-col">MM</div>
-                              <div class="format-col">2位月份</div>
-                              <div class="format-col">01</div>
-                          </div>
-                          <div class="format-row">
-                              <div class="format-col">DD</div>
-                              <div class="format-col">2位日期</div>
-                              <div class="format-col">15</div>
-                          </div>
-                          <div class="format-row">
-                              <div class="format-col">HH</div>
-                              <div class="format-col">24小时制</div>
-                              <div class="format-col">14</div>
-                          </div>
-                          <div class="format-row">
-                              <div class="format-col">mm</div>
-                              <div class="format-col">分钟</div>
-                              <div class="format-col">30</div>
-                          </div>
-                          <div class="format-row">
-                              <div class="format-col">ss</div>
-                              <div class="format-col">秒</div>
-                              <div class="format-col">25</div>
-                          </div>
-                          <div class="format-row">
-                              <div class="format-col">timestamp</div>
-                              <div class="format-col">时间戳</div>
-                              <div class="format-col">1705329025000</div>
-                          </div>
-                      </div>
-                      
-                      <h4>使用示例：</h4>
-                      <div class="examples-grid">
-                          <div class="example">
-                              <div class="example-input">
-                                  <span>配置：</span>
-                                  <code>(@SystemTime(YYYY-MM-DD)@SystemTime)</code>
-                              </div>
-                              <div class="example-output">
-                                  <span>结果：</span>
-                                  <code>2024-01-15</code>
-                              </div>
-                          </div>
-                          <div class="example">
-                              <div class="example-input">
-                                  <span>配置：</span>
-                                  <code>(@SystemTime(YYYY/MM/DD HH:mm)@SystemTime)</code>
-                              </div>
-                              <div class="example-output">
-                                  <span>结果：</span>
-                                  <code>2024/01/15 14:30</code>
-                              </div>
-                          </div>
-                          <div class="example">
-                              <div class="example-input">
-                                  <span>配置：</span>
-                                  <code>(@SystemTime@SystemTime)</code>
-                              </div>
-                              <div class="example-output">
-                                  <span>结果：</span>
-                                  <code>2024-01-15 14:30:25</code>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </section>
+        <div class="container">
+            <h2 class="section-title">@SystemTime标签详细说明</h2>
+            <div class="tag-detail-content">
+                <div class="detail-card">
+                    <h3><i class="fas fa-clock"></i> @SystemTime 标签</h3>
+                    <div class="detail-info">
+                        <h4>语法格式：</h4>
+                        <code class="detail-code">(@SystemTime(pattern)@SystemTime)</code>
+                        
+                        <div class="compatibility-note">
+                            <i class="fas fa-info-circle"></i>
+                            <strong>格式兼容性：</strong>本标签的时间格式参数完全兼容 
+                            <a href="https://momentjs.com/" target="_blank" rel="noopener noreferrer">moment.js</a> 
+                            的格式规范，支持所有标准的moment.js格式化令牌。
+                        </div>
+                        
+                        <h4>参数说明：</h4>
+                        <ul class="param-list">
+                            <li><strong>pattern</strong>：时间格式字符串（可选）</li>
+                            <li>默认值：<code>YYYY-MM-DD HH:mm:ss</code></li>
+                            <li>使用<code>timestamp</code>返回Unix时间戳（毫秒）</li>
+                        </ul>
+                        
+                        <h4>常用moment.js格式令牌：</h4>
+                        <div class="format-table">
+                            <div class="format-row">
+                                <div class="format-col"><strong>令牌</strong></div>
+                                <div class="format-col"><strong>说明</strong></div>
+                                <div class="format-col"><strong>示例输出</strong></div>
+                            </div>
+                            <div class="format-row">
+                                <div class="format-col">YYYY</div>
+                                <div class="format-col">4位年份</div>
+                                <div class="format-col">2024</div>
+                            </div>
+                            <div class="format-row">
+                                <div class="format-col">YY</div>
+                                <div class="format-col">2位年份</div>
+                                <div class="format-col">24</div>
+                            </div>
+                            <div class="format-row">
+                                <div class="format-col">MM</div>
+                                <div class="format-col">2位月份（01-12）</div>
+                                <div class="format-col">01</div>
+                            </div>
+                            <div class="format-row">
+                                <div class="format-col">M</div>
+                                <div class="format-col">月份（1-12）</div>
+                                <div class="format-col">1</div>
+                            </div>
+                            <div class="format-row">
+                                <div class="format-col">MMM</div>
+                                <div class="format-col">月份简称</div>
+                                <div class="format-col">Jan</div>
+                            </div>
+                            <div class="format-row">
+                                <div class="format-col">MMMM</div>
+                                <div class="format-col">月份全称</div>
+                                <div class="format-col">January</div>
+                            </div>
+                            <div class="format-row">
+                                <div class="format-col">DD</div>
+                                <div class="format-col">2位日期（01-31）</div>
+                                <div class="format-col">15</div>
+                            </div>
+                            <div class="format-row">
+                                <div class="format-col">D</div>
+                                <div class="format-col">日期（1-31）</div>
+                                <div class="format-col">15</div>
+                            </div>
+                            <div class="format-row">
+                                <div class="format-col">HH</div>
+                                <div class="format-col">24小时制小时（00-23）</div>
+                                <div class="format-col">14</div>
+                            </div>
+                            <div class="format-row">
+                                <div class="format-col">H</div>
+                                <div class="format-col">24小时制小时（0-23）</div>
+                                <div class="format-col">14</div>
+                            </div>
+                            <div class="format-row">
+                                <div class="format-col">hh</div>
+                                <div class="format-col">12小时制小时（01-12）</div>
+                                <div class="format-col">02</div>
+                            </div>
+                            <div class="format-row">
+                                <div class="format-col">h</div>
+                                <div class="format-col">12小时制小时（1-12）</div>
+                                <div class="format-col">2</div>
+                            </div>
+                            <div class="format-row">
+                                <div class="format-col">mm</div>
+                                <div class="format-col">分钟（00-59）</div>
+                                <div class="format-col">30</div>
+                            </div>
+                            <div class="format-row">
+                                <div class="format-col">m</div>
+                                <div class="format-col">分钟（0-59）</div>
+                                <div class="format-col">30</div>
+                            </div>
+                            <div class="format-row">
+                                <div class="format-col">ss</div>
+                                <div class="format-col">秒（00-59）</div>
+                                <div class="format-col">25</div>
+                            </div>
+                            <div class="format-row">
+                                <div class="format-col">s</div>
+                                <div class="format-col">秒（0-59）</div>
+                                <div class="format-col">25</div>
+                            </div>
+                            <div class="format-row">
+                                <div class="format-col">SSS</div>
+                                <div class="format-col">毫秒（000-999）</div>
+                                <div class="format-col">500</div>
+                            </div>
+                            <div class="format-row">
+                                <div class="format-col">A</div>
+                                <div class="format-col">AM/PM</div>
+                                <div class="format-col">PM</div>
+                            </div>
+                            <div class="format-row">
+                                <div class="format-col">a</div>
+                                <div class="format-col">am/pm</div>
+                                <div class="format-col">pm</div>
+                            </div>
+                            <div class="format-row">
+                                <div class="format-col">Z</div>
+                                <div class="format-col">时区偏移</div>
+                                <div class="format-col">+08:00</div>
+                            </div>
+                            <div class="format-row">
+                                <div class="format-col">X</div>
+                                <div class="format-col">Unix时间戳（秒）</div>
+                                <div class="format-col">1705329025</div>
+                            </div>
+                            <div class="format-row">
+                                <div class="format-col">x</div>
+                                <div class="format-col">Unix时间戳（毫秒）</div>
+                                <div class="format-col">1705329025000</div>
+                            </div>
+                        </div>
+                        
+                        <div class="momentjs-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            完整格式令牌请参考：
+                            <a href="https://momentjs.com/docs/#/displaying/format/" target="_blank" rel="noopener noreferrer">
+                                moment.js官方文档 - 格式化
+                            </a>
+                        </div>
+                        
+                        <h4>使用示例：</h4>
+                        <div class="examples-grid">
+                            <div class="example">
+                                <div class="example-input">
+                                    <span>配置：</span>
+                                    <code>(@SystemTime(YYYY-MM-DD)@SystemTime)</code>
+                                </div>
+                                <div class="example-output">
+                                    <span>结果：</span>
+                                    <code>2024-01-15</code>
+                                </div>
+                            </div>
+                            <div class="example">
+                                <div class="example-input">
+                                    <span>配置：</span>
+                                    <code>(@SystemTime(YYYY/MM/DD HH:mm:ss)@SystemTime)</code>
+                                </div>
+                                <div class="example-output">
+                                    <span>结果：</span>
+                                    <code>2024/01/15 14:30:25</code>
+                                </div>
+                            </div>
+                            <div class="example">
+                                <div class="example-input">
+                                    <span>配置：</span>
+                                    <code>(@SystemTime(YYYY年MM月DD日 HH:mm)@SystemTime)</code>
+                                </div>
+                                <div class="example-output">
+                                    <span>结果：</span>
+                                    <code>2024年01月15日 14:30</code>
+                                </div>
+                            </div>
+                            <div class="example">
+                                <div class="example-input">
+                                    <span>配置：</span>
+                                    <code>(@SystemTime(x)@SystemTime)</code>
+                                </div>
+                                <div class="example-output">
+                                    <span>结果：</span>
+                                    <code>1705329025000</code>
+                                </div>
+                            </div>
+                            <div class="example">
+                                <div class="example-input">
+                                    <span>配置：</span>
+                                    <code>(@SystemTime(YYYY-MM-DDTHH:mm:ssZ)@SystemTime)</code>
+                                </div>
+                                <div class="example-output">
+                                    <span>结果：</span>
+                                    <code>2024-01-15T14:30:25+08:00</code>
+                                </div>
+                            </div>
+                            <div class="example">
+                                <div class="example-input">
+                                    <span>配置：</span>
+                                    <code>(@SystemTime)</code>
+                                </div>
+                                <div class="example-output">
+                                    <span>结果：</span>
+                                    <code>2024-01-15 14:30:25</code>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="advanced-examples">
+                            <h4>高级用法示例：</h4>
+                            <div class="advanced-grid">
+                                <div class="advanced-item">
+                                    <h5><i class="fas fa-calendar-alt"></i> 相对时间</h5>
+                                    <pre><code>{
+      "created_at": "(@SystemTime(YYYY-MM-DD)@SystemTime)",
+      "updated_at": "(@SystemTime(YYYY-MM-DD)@SystemTime)"
+    }</code></pre>
+                                </div>
+                                <div class="advanced-item">
+                                    <h5><i class="fas fa-file-contract"></i> 合同有效期</h5>
+                                    <pre><code>{
+      "contract_start": "(@SystemTime(YYYY-MM-DD)@SystemTime)",
+      "contract_end": "(@SystemTime(YYYY-MM-DD)@SystemTime)"
+    }</code></pre>
+                                </div>
+                                <div class="advanced-item">
+                                    <h5><i class="fas fa-sync-alt"></i> API请求时间戳</h5>
+                                    <pre><code>{
+      "headers": {
+        "X-Timestamp": "(@SystemTime(x)@SystemTime)",
+        "X-Date": "(@SystemTime(YYYY-MM-DDTHH:mm:ssZ)@SystemTime)"
+      }
+    }</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- 使用方式 -->
     <section id="usage" class="usage">
@@ -398,11 +548,10 @@ export PATH=$PATH:$(pwd)/bin</code></pre>
                 <div class="step">
                   <div class="step-number">2</div>
                   <div class="step-content">
-                      <h3>创建配置文件（使用功能标签）</h3>
-                      <p>内置标签让测试数据动态生成</p>
+                      <h3>创建配置文件（使用@SystemTime标签）</h3>
+                      <p>使用moment.js格式生成动态时间戳</p>
                       <div class="code-tabs">
                           <button class="code-tab active" onclick="showCode('json')">JSON示例</button>
-                          <button class="code-tab" onclick="showCode('excel')">Excel示例</button>
                       </div>
                       <pre id="json-code" class="code-block active"><code>{
                 "api_test": {
@@ -410,36 +559,34 @@ export PATH=$PATH:$(pwd)/bin</code></pre>
                   "method": "POST",
                   "headers": {
                     "Content-Type": "application/json",
-                    "X-Timestamp": "(@SystemTime(YYYY-MM-DD HH:mm:ss)@SystemTime)"
+                    "X-Timestamp": "(@SystemTime(x)@SystemTime)",
+                    "X-Date": "(@SystemTime(YYYY-MM-DDTHH:mm:ssZ)@SystemTime)"
                   },
                   "body": {
                     "order_id": "ORD_(@RandomDigit(######)@RandomDigit)",
                     "order_time": "(@SystemTime(YYYY-MM-DD HH:mm:ss)@SystemTime)",
+                    "iso_time": "(@SystemTime(YYYY-MM-DDTHH:mm:ss.SSSZ)@SystemTime)",
+                    "readable_time": "(@SystemTime(MMMM Do YYYY, h:mm:ss a)@SystemTime)",
                     "customer": {
                       "name": "(@RandomUpper(AAA-###)@RandomUpper)",
                       "email": "(@RandomLower(###)@RandomLower)@example.com"
-                    },
-                    "amount": "(@RandomDigit(###.##)@RandomDigit)"
+                    }
                   },
                   "assertions": {
                     "status_code": 201,
-                    "response_time": 1000,
-                    "response_body": {
-                      "success": "(NotNull)",
-                      "order_id": "(@SameAs(body.order_id)@SameAs)"
-                    }
+                    "response_time": 1000
                   }
                 }
               }</code></pre>
                   </div>
               </div>
                 
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>运行测试</h3>
-                        <p>执行命令开始测试</p>
-                        <pre><code class="language-bash"># 基本测试
+              <div class="step">
+                  <div class="step-number">3</div>
+                  <div class="step-content">
+                      <h3>运行测试</h3>
+                      <p>执行命令开始测试</p>
+                      <pre><code class="language-bash"># 基本测试
 apitest run config.json
 
 # 性能测试模式
@@ -450,8 +597,8 @@ apitest run config.json --output ./reports
 
 # 格式转换
 apitest convert input.json output.xlsx</code></pre>
-                    </div>
-                </div>
+                  </div>
+              </div>
             </div>
         </div>
     </section>

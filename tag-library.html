@@ -266,64 +266,83 @@
 
     <!-- 时间日期处理 -->
     <section id="time" class="tag-category-section">
-        <div class="container">
-            <div class="tag-category-title">
-                <i class="fas fa-calendar"></i>
-                <h2>时间日期处理</h2>
-            </div>
-            <table class="tag-table">
-                <thead>
-                    <tr>
-                        <th width="250">标签语法</th>
-                        <th width="300">使用示例</th>
-                        <th>功能描述</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><code class="tag-syntax">(@SystemTime(pattern)@SystemTime)</code></td>
-                        <td>
-                            <code class="tag-example">(@SystemTime(YYYY-MM-DD)@SystemTime)</code>
-                            <div style="margin-top: 5px; font-size: 0.85rem; color: #666;">
-                                常用格式：
-                                <div style="display: flex; flex-wrap: wrap; gap: 5px; margin-top: 5px;">
-                                    <span style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px; font-size: 0.8rem;">YYYY-MM-DD HH:mm:ss</span>
-                                    <span style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px; font-size: 0.8rem;">YYYY/MM/DD</span>
-                                    <span style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px; font-size: 0.8rem;">timestamp</span>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="tag-desc">
-                            <strong>获取当前系统时间</strong>
-                            <ul style="margin: 8px 0 0 20px; color: #666;">
-                                <li>支持自定义时间格式</li>
-                                <li>返回格式化后的时间字符串</li>
-                                <li>可用于动态生成时间戳</li>
-                            </ul>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <!-- 添加更多示例 -->
-            <div class="tag-examples-grid" style="margin-top: 25px; background: #f8f9fa; padding: 20px; border-radius: 8px;">
-                <h4 style="margin-bottom: 15px; color: #333; font-size: 1.1rem;">更多使用示例：</h4>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
-                    <div class="example-item">
-                        <code style="background: #e8f4ff; padding: 8px 12px; border-radius: 4px; display: block; margin-bottom: 5px; font-family: 'Courier New', monospace; color: #0066cc;">(@SystemTime(YYYY-MM-DD HH:mm:ss)@SystemTime)</code>
-                        <span style="font-size: 0.9rem; color: #666;">→ 2024-01-15 14:30:25</span>
-                    </div>
-                    <div class="example-item">
-                        <code style="background: #e8f4ff; padding: 8px 12px; border-radius: 4px; display: block; margin-bottom: 5px; font-family: 'Courier New', monospace; color: #0066cc;">(@SystemTime(YYYY/MM/DD)@SystemTime)</code>
-                        <span style="font-size: 0.9rem; color: #666;">→ 2024/01/15</span>
-                    </div>
-                    <div class="example-item">
-                        <code style="background: #e8f4ff; padding: 8px 12px; border-radius: 4px; display: block; margin-bottom: 5px; font-family: 'Courier New', monospace; color: #0066cc;">(@SystemTime(timestamp)@SystemTime)</code>
-                        <span style="font-size: 0.9rem; color: #666;">→ 1705329025000</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <div class="container">
+          <div class="tag-category-title">
+              <i class="fas fa-calendar"></i>
+              <h2>时间日期处理</h2>
+          </div>
+          <table class="tag-table">
+              <thead>
+                  <tr>
+                      <th width="250">标签语法</th>
+                      <th width="300">使用示例</th>
+                      <th>功能描述</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td><code class="tag-syntax">(@SystemTime(pattern)@SystemTime)</code></td>
+                      <td>
+                          <code class="tag-example">(@SystemTime(YYYY-MM-DD)@SystemTime)</code>
+                          <div style="margin-top: 5px; font-size: 0.85rem; color: #666;">
+                              <strong>格式兼容性：</strong>完全兼容 
+                              <a href="https://momentjs.com/" target="_blank" style="color: #667eea;">moment.js</a> 
+                              格式规范
+                          </div>
+                      </td>
+                      <td class="tag-desc">
+                          <strong>获取当前系统时间</strong>
+                          <ul style="margin: 8px 0 0 20px; color: #666;">
+                              <li>格式参数兼容moment.js标准</li>
+                              <li>支持所有标准的格式化令牌</li>
+                              <li>默认格式：YYYY-MM-DD HH:mm:ss</li>
+                              <li>特殊值：x (时间戳毫秒), X (时间戳秒)</li>
+                          </ul>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+          
+          <!-- 添加moment.js格式示例 -->
+          <div class="tag-examples-grid" style="margin-top: 25px; background: #f8f9fa; padding: 20px; border-radius: 8px;">
+              <h4 style="margin-bottom: 15px; color: #333; font-size: 1.1rem;">常用moment.js格式示例：</h4>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px;">
+                  <div class="example-item">
+                      <code style="background: #e8f4ff; padding: 8px 12px; border-radius: 4px; display: block; margin-bottom: 5px; font-family: 'Courier New', monospace; color: #0066cc;">(@SystemTime(YYYY-MM-DD)@SystemTime)</code>
+                      <span style="font-size: 0.9rem; color: #666;">→ 2024-01-15</span>
+                  </div>
+                  <div class="example-item">
+                      <code style="background: #e8f4ff; padding: 8px 12px; border-radius: 4px; display: block; margin-bottom: 5px; font-family: 'Courier New', monospace; color: #0066cc;">(@SystemTime(YYYY/MM/DD HH:mm:ss)@SystemTime)</code>
+                      <span style="font-size: 0.9rem; color: #666;">→ 2024/01/15 14:30:25</span>
+                  </div>
+                  <div class="example-item">
+                      <code style="background: #e8f4ff; padding: 8px 12px; border-radius: 4px; display: block; margin-bottom: 5px; font-family: 'Courier New', monospace; color: #0066cc;">(@SystemTime(MMMM Do YYYY, h:mm:ss a)@SystemTime)</code>
+                      <span style="font-size: 0.9rem; color: #666;">→ January 15th 2024, 2:30:25 pm</span>
+                  </div>
+                  <div class="example-item">
+                      <code style="background: #e8f4ff; padding: 8px 12px; border-radius: 4px; display: block; margin-bottom: 5px; font-family: 'Courier New', monospace; color: #0066cc;">(@SystemTime(x)@SystemTime)</code>
+                      <span style="font-size: 0.9rem; color: #666;">→ 1705329025000</span>
+                  </div>
+                  <div class="example-item">
+                      <code style="background: #e8f4ff; padding: 8px 12px; border-radius: 4px; display: block; margin-bottom: 5px; font-family: 'Courier New', monospace; color: #0066cc;">(@SystemTime(YYYY-MM-DDTHH:mm:ssZ)@SystemTime)</code>
+                      <span style="font-size: 0.9rem; color: #666;">→ 2024-01-15T14:30:25+08:00</span>
+                  </div>
+                  <div class="example-item">
+                      <code style="background: #e8f4ff; padding: 8px 12px; border-radius: 4px; display: block; margin-bottom: 5px; font-family: 'Courier New', monospace; color: #0066cc;">(@SystemTime@SystemTime)</code>
+                      <span style="font-size: 0.9rem; color: #666;">→ 2024-01-15 14:30:25 (默认格式)</span>
+                  </div>
+              </div>
+              <div style="margin-top: 15px; padding: 10px; background: #e7f3ff; border-radius: 5px; border-left: 4px solid #0066cc;">
+                  <i class="fas fa-external-link-alt" style="color: #0066cc; margin-right: 5px;"></i>
+                  <span style="color: #0066cc; font-size: 0.9rem;">
+                      完整格式令牌请参考：
+                      <a href="https://momentjs.com/docs/#/displaying/format/" target="_blank" style="color: #0066cc; font-weight: 600;">
+                          moment.js官方文档
+                      </a>
+                  </span>
+              </div>
+          </div>
+      </div>
     </section>
 
     <!-- 字符串处理 -->

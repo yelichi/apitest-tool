@@ -29,15 +29,26 @@ APITest Pro提供了丰富的内置功能标签，覆盖以下类别：
 - 语法：(@SystemTime(pattern)@SystemTime)
 - 示例：(@SystemTime(YYYY-MM-DD)@SystemTime)
 - 结果：2024-01-15
-- 支持格式：
-  - YYYY-MM-DD HH:mm:ss (默认)
-  - YYYY/MM/DD
-  - YYYY年MM月DD日
-  - timestamp (返回时间戳)
+- 格式兼容性：
+  - 完全兼容 moment.js (https://momentjs.com/) 格式规范
+  - 支持所有标准的moment.js格式化令牌
+  - 默认格式：YYYY-MM-DD HH:mm:ss
+- 常用格式令牌：
+  - YYYY - 4位年份 (2024)
+  - MM - 2位月份 (01)
+  - DD - 2位日期 (15)
+  - HH - 24小时制 (14)
+  - mm - 分钟 (30)
+  - ss - 秒 (25)
+  - x - Unix时间戳毫秒 (1705329025000)
+  - X - Unix时间戳秒 (1705329025)
+- 完整格式令牌请参考：https://momentjs.com/docs/#/displaying/format/
 - 常用示例：
   - (@SystemTime@SystemTime) → 2024-01-15 14:30:25
   - (@SystemTime(YYYY/MM/DD)@SystemTime) → 2024/01/15
-  - (@SystemTime(timestamp)@SystemTime) → 1705329025000
+  - (@SystemTime(MMMM Do YYYY, h:mm:ss a)@SystemTime) → January 15th 2024, 2:30:25 pm
+  - (@SystemTime(x)@SystemTime) → 1705329025000
+  - (@SystemTime(YYYY-MM-DDTHH:mm:ssZ)@SystemTime) → 2024-01-15T14:30:25+08:00
 
 ### 4. 字符串处理
 - 随机字母生成：`(@RandomLower(pattern)@RandomLower)`, `(@RandomUpper(pattern)@RandomUpper)`
