@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APITest Pro - 专业的API自动化测试工具</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-bolt logo-icon"></i>
+                <span class="brand-name">APITest<span class="brand-highlight">Pro</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="#features">功能特性</a>
+                <a href="#usage">使用方式</a>
+                <a href="#download">下载</a>
+                <a href="#contact" class="btn-outline">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">让API测试<span class="highlight">简单高效</span></h1>
+                <p class="hero-subtitle">一款功能强大的命令行API自动化测试工具，支持多种配置格式，提供详细日志和HTML报告</p>
+                <div class="hero-buttons">
+                    <a href="#download" class="btn-primary">
+                        <i class="fas fa-download"></i> 立即下载
+                    </a>
+                    <a href="#usage" class="btn-secondary">
+                        <i class="fas fa-book"></i> 查看文档
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <i class="fas fa-check-circle"></i>
+                        <span>100% 自动化</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-file-export"></i>
+                        <span>3种配置格式</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>性能测试</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-terminal">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="terminal-title">terminal</div>
+                </div>
+                <div class="terminal-body">
+                    <pre><code>$ npm test
+🚀 开始执行API测试...
+✅   执行API 1 请求...    (32ms)
+✅   执行API 2 请求...    (142ms)
+✅   执行API 3 请求...    (142ms)
+✅   执行API 4 请求...    (142ms)
+3 passing
+1 failing
+📝 生成HTML报告...
+🎉 测试完成! 查看报告: report.html</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 功能特性 -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">核心功能特性</h2>
+            <p class="section-subtitle">专为开发者设计的强大测试工具</p>
+            
+            <div class="features-grid">
+                <!-- 功能1 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-terminal"></i>
+                    </div>
+                    <h3>命令式启动</h3>
+                    <p>简洁的命令行接口，轻松集成到CI/CD流程，支持批处理和自动化执行</p>
+                </div>
+                
+                <!-- 功能2 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>多格式配置</h3>
+                    <p>支持JSON、Excel、ZIP三种配置文件格式，满足不同场景需求</p>
+                    <div class="format-tags">
+                        <span class="tag json">JSON</span>
+                        <span class="tag excel">Excel</span>
+                        <span class="tag zip">ZIP</span>
+                    </div>
+                </div>
+                
+                <!-- 功能3 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3>详细日志记录</h3>
+                    <p>完整的测试过程日志，支持断言结果输出，便于问题追踪和调试</p>
+                </div>
+                
+                <!-- 功能4 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>自动加密</h3>
+                    <p>支持非对称加密请求Body，确保敏感数据传输安全</p>
+                </div>
+                
+                <!-- 功能5 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>性能测试</h3>
+                    <p>内置性能测试功能，支持并发测试和响应时间分析</p>
+                </div>
+                
+                <!-- 功能6 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-code"></i>
+                    </div>
+                    <h3>HTML报告</h3>
+                    <p>生成美观的HTML测试报告，直观展示测试结果和统计信息</p>
+                </div>
+                
+                <!-- 功能7 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>格式转换</h3>
+                    <p>支持JSON、Excel、ZIP格式互转，灵活适应不同工作流程</p>
+                </div>
+                
+                <!-- 功能8 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>灵活扩展</h3>
+                    <p>模块化设计，支持插件扩展，可根据需要定制功能</p>
+                </div>
+
+                <!-- 第9个功能卡片 -->
+                <div class="feature-card full-width-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <h3>强大的内置标签库</h3>
+                    <p>支持数据关联、随机生成、哈希计算、逻辑处理等复杂功能</p>
+                    
+                    <div class="tags-category-container">
+                        <!-- Excel数据关联 -->
+                        <div class="tag-category-box">
+                            <h4><i class="fas fa-table"></i> Excel数据关联</h4>
+                            <div class="tag-item">
+                                <code class="tag-code">(Object)</code>
+                                <span class="tag-desc">用作连接作为对象</span>
+                            </div>
+                            <div class="tag-item">
+                                <code class="tag-code">(List)</code>
+                                <span class="tag-desc">用作连接作为数组</span>
+                            </div>
+                        </div>
+
+                        <!-- 随机数生成 -->
+                        <div class="tag-category-box">
+                            <h4><i class="fas fa-dice"></i> 随机数生成</h4>
+                            <div class="tag-item">
+                                <code class="tag-code">(@RandomDigit(pattern)@RandomDigit)</code>
+                                <span class="tag-desc">随机数字，如：<code>(@RandomDigit(###.##)@RandomDigit)</code></span>
+                            </div>
+                        </div>
+
+                        <!-- 时间日期处理 -->
+                        <div class="tag-category-box">
+                            <h4><i class="fas fa-calendar"></i> 时间日期处理</h4>
+                            <div class="tag-item">
+                                <code class="tag-code">(@SystemTime(pattern)@SystemTime)</code>
+                                <span class="tag-desc">获取当前系统时间，如：<code>(@SystemTime(YYYY-MM-DD)@SystemTime)</code></span>
+                            </div>
+                        </div>
+
+                        <!-- 字符串处理 -->
+                        <div class="tag-category-box">
+                            <h4><i class="fas fa-font"></i> 字符串处理</h4>
+                            <div class="tag-item">
+                                <code class="tag-code">(@RandomLower(pattern)@RandomLower)</code>
+                                <span class="tag-desc">随机小写字母，如：<code>(@RandomLower(###-##)@RandomLower)</code></span>
+                            </div>
+                            <div class="tag-item">
+                                <code class="tag-code">(@RandomUpper(pattern)@RandomUpper)</code>
+                                <span class="tag-desc">随机大写字母，如：<code>(@RandomUpper(###-##)@RandomUpper)</code></span>
+                            </div>
+                            <div class="tag-item">
+                                <code class="tag-code">(@Hash(targetPath, isHashByValue)@Hash)</code>
+                                <span class="tag-desc">请求body数据转为Hash值</span>
+                            </div>
+                            <div class="tag-item">
+                                <code class="tag-code">(@Hash256(targetPath, isHash256ByValue)@Hash256)</code>
+                                <span class="tag-desc">请求body数据转为Hash256值</span>
+                            </div>
+                            <div class="tag-item">
+                                <code class="tag-code">(@Hash512(targetPath, isHash512ByValue)@Hash512)</code>
+                                <span class="tag-desc">请求body数据转为Hash512值</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 强大的内置标签库 -->
+    <section class="tags-preview">
+        <div class="container">
+            <h2 class="section-title">强大的内置标签库</h2>
+            <p class="section-subtitle">超过30种内置功能标签，满足各种测试需求</p>
+            
+            <div class="tags-overview">
+                <div class="overview-card">
+                    <i class="fas fa-table"></i>
+                    <h3>Excel数据关联</h3>
+                    <p>支持对象(Object)和数组(List)关联</p>
+                </div>
+                
+                <div class="overview-card">
+                    <i class="fas fa-dice"></i>
+                    <h3>随机生成</h3>
+                    <p>数字、字母、模式化随机数据</p>
+                </div>
+                
+                <div class="overview-card">
+                    <i class="fas fa-font"></i>
+                    <h3>字符串处理</h3>
+                    <p>哈希计算、大小写转换、UUID生成</p>
+                </div>
+                
+                <div class="overview-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>逻辑处理</h3>
+                    <p>数据关联、文件操作、测试用例关联</p>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 40px;">
+                <a href="tag-library.html" class="btn-primary">
+                    <i class="fas fa-book"></i> 查看完整标签库
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 时间标签详细说明 -->
+    <section class="tag-detail-section">
+      <div class="container">
+          <h2 class="section-title">时间标签详细说明</h2>
+          <div class="tag-detail-content">
+              <div class="detail-card">
+                  <h3><i class="fas fa-clock"></i> @SystemTime 标签</h3>
+                  <div class="detail-info">
+                      <h4>语法格式：</h4>
+                      <code class="detail-code">(@SystemTime(pattern)@SystemTime)</code>
+                      
+                      <h4>参数说明：</h4>
+                      <ul class="param-list">
+                          <li><strong>pattern</strong>：时间格式模式（可选）</li>
+                          <li>默认格式：<code>YYYY-MM-DD HH:mm:ss</code></li>
+                      </ul>
+                      
+                      <h4>支持的格式字符：</h4>
+                      <div class="format-table">
+                          <div class="format-row">
+                              <div class="format-col"><strong>字符</strong></div>
+                              <div class="format-col"><strong>说明</strong></div>
+                              <div class="format-col"><strong>示例</strong></div>
+                          </div>
+                          <div class="format-row">
+                              <div class="format-col">YYYY</div>
+                              <div class="format-col">4位年份</div>
+                              <div class="format-col">2024</div>
+                          </div>
+                          <div class="format-row">
+                              <div class="format-col">MM</div>
+                              <div class="format-col">2位月份</div>
+                              <div class="format-col">01</div>
+                          </div>
+                          <div class="format-row">
+                              <div class="format-col">DD</div>
+                              <div class="format-col">2位日期</div>
+                              <div class="format-col">15</div>
+                          </div>
+                          <div class="format-row">
+                              <div class="format-col">HH</div>
+                              <div class="format-col">24小时制</div>
+                              <div class="format-col">14</div>
+                          </div>
+                          <div class="format-row">
+                              <div class="format-col">mm</div>
+                              <div class="format-col">分钟</div>
+                              <div class="format-col">30</div>
+                          </div>
+                          <div class="format-row">
+                              <div class="format-col">ss</div>
+                              <div class="format-col">秒</div>
+                              <div class="format-col">25</div>
+                          </div>
+                          <div class="format-row">
+                              <div class="format-col">timestamp</div>
+                              <div class="format-col">时间戳</div>
+                              <div class="format-col">1705329025000</div>
+                          </div>
+                      </div>
+                      
+                      <h4>使用示例：</h4>
+                      <div class="examples-grid">
+                          <div class="example">
+                              <div class="example-input">
+                                  <span>配置：</span>
+                                  <code>(@SystemTime(YYYY-MM-DD)@SystemTime)</code>
+                              </div>
+                              <div class="example-output">
+                                  <span>结果：</span>
+                                  <code>2024-01-15</code>
+                              </div>
+                          </div>
+                          <div class="example">
+                              <div class="example-input">
+                                  <span>配置：</span>
+                                  <code>(@SystemTime(YYYY/MM/DD HH:mm)@SystemTime)</code>
+                              </div>
+                              <div class="example-output">
+                                  <span>结果：</span>
+                                  <code>2024/01/15 14:30</code>
+                              </div>
+                          </div>
+                          <div class="example">
+                              <div class="example-input">
+                                  <span>配置：</span>
+                                  <code>(@SystemTime@SystemTime)</code>
+                              </div>
+                              <div class="example-output">
+                                  <span>结果：</span>
+                                  <code>2024-01-15 14:30:25</code>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+    <!-- 使用方式 -->
+    <section id="usage" class="usage">
+        <div class="container">
+            <h2 class="section-title">快速开始</h2>
+            <p class="section-subtitle">只需几步即可开始API测试</p>
+            
+            <div class="usage-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>安装工具</h3>
+                        <p>下载并安装APITest Pro工具包</p>
+                        <pre><code class="language-bash"># 下载安装包
+wget https://your-domain.com/apitest-pro.zip
+# 解压安装
+unzip apitest-pro.zip
+cd apitest-pro
+# 设置环境变量
+export PATH=$PATH:$(pwd)/bin</code></pre>
+                    </div>
+                </div>
+                
+                <div class="step">
+                  <div class="step-number">2</div>
+                  <div class="step-content">
+                      <h3>创建配置文件（使用功能标签）</h3>
+                      <p>内置标签让测试数据动态生成</p>
+                      <div class="code-tabs">
+                          <button class="code-tab active" onclick="showCode('json')">JSON示例</button>
+                          <button class="code-tab" onclick="showCode('excel')">Excel示例</button>
+                      </div>
+                      <pre id="json-code" class="code-block active"><code>{
+                "api_test": {
+                  "endpoint": "https://api.example.com/orders",
+                  "method": "POST",
+                  "headers": {
+                    "Content-Type": "application/json",
+                    "X-Timestamp": "(@SystemTime(YYYY-MM-DD HH:mm:ss)@SystemTime)"
+                  },
+                  "body": {
+                    "order_id": "ORD_(@RandomDigit(######)@RandomDigit)",
+                    "order_time": "(@SystemTime(YYYY-MM-DD HH:mm:ss)@SystemTime)",
+                    "customer": {
+                      "name": "(@RandomUpper(AAA-###)@RandomUpper)",
+                      "email": "(@RandomLower(###)@RandomLower)@example.com"
+                    },
+                    "amount": "(@RandomDigit(###.##)@RandomDigit)"
+                  },
+                  "assertions": {
+                    "status_code": 201,
+                    "response_time": 1000,
+                    "response_body": {
+                      "success": "(NotNull)",
+                      "order_id": "(@SameAs(body.order_id)@SameAs)"
+                    }
+                  }
+                }
+              }</code></pre>
+                  </div>
+              </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>运行测试</h3>
+                        <p>执行命令开始测试</p>
+                        <pre><code class="language-bash"># 基本测试
+apitest run config.json
+
+# 性能测试模式
+apitest run config.json --performance
+
+# 指定输出目录
+apitest run config.json --output ./reports
+
+# 格式转换
+apitest convert input.json output.xlsx</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 下载区域 -->
+    <section id="download" class="download">
+        <div class="container">
+            <h2 class="section-title">下载APITest Pro</h2>
+            <p class="section-subtitle">选择适合您系统的版本</p>
+            
+            <div class="download-options">
+                <div class="download-card">
+                    <div class="download-icon">
+                        <i class="fab fa-windows"></i>
+                    </div>
+                    <h3>Windows</h3>
+                    <p>适用于 Windows 10/11</p>
+                    <div class="download-info">
+                        <span><i class="fas fa-download"></i> 版本 1.0.0</span>
+                        <span><i class="fas fa-hdd"></i> 25 MB</span>
+                    </div>
+                    <a href="#" class="btn-primary">
+                        <i class="fas fa-download"></i> 下载 .exe
+                    </a>
+                </div>
+                
+                <div class="download-card">
+                    <div class="download-icon">
+                        <i class="fab fa-apple"></i>
+                    </div>
+                    <h3>macOS</h3>
+                    <p>适用于 macOS 10.14+</p>
+                    <div class="download-info">
+                        <span><i class="fas fa-download"></i> 版本 1.0.0</span>
+                        <span><i class="fas fa-hdd"></i> 30 MB</span>
+                    </div>
+                    <a href="#" class="btn-primary">
+                        <i class="fas fa-download"></i> 下载 .dmg
+                    </a>
+                </div>
+                
+                <div class="download-card">
+                    <div class="download-icon">
+                        <i class="fab fa-linux"></i>
+                    </div>
+                    <h3>Linux</h3>
+                    <p>适用于 Ubuntu/CentOS</p>
+                    <div class="download-info">
+                        <span><i class="fas fa-download"></i> 版本 1.0.0</span>
+                        <span><i class="fas fa-hdd"></i> 22 MB</span>
+                    </div>
+                    <a href="#" class="btn-primary">
+                        <i class="fas fa-download"></i> 下载 .tar.gz
+                    </a>
+                </div>
+            </div>
+            
+            <div class="download-note">
+                <p><i class="fas fa-info-circle"></i> 所有版本均包含完整的命令行工具和文档</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系区域 -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2>准备好开始了吗？</h2>
+                <p>立即下载APITest Pro，提升您的API测试效率</p>
+                <a href="#download" class="btn-primary btn-large">
+                    <i class="fas fa-rocket"></i> 立即开始使用
+                </a>
+                <p class="contact-email">
+                    有问题或建议？联系: 
+                    <a href="mailto:support@apitestpro.dev">support@apitestpro.dev</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-bolt logo-icon"></i>
+                    <span>APITest<span class="brand-highlight">Pro</span></span>
+                </div>
+                <div class="footer-links">
+                    <a href="#features">功能</a>
+                    <a href="#usage">文档</a>
+                    <a href="https://github.com/yourusername/apitest-pro" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="#contact">支持</a>
+                </div>
+                <p class="copyright">© 2024 APITest Pro. 专为开发者打造的API测试工具</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

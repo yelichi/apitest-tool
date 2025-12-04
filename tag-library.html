@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>完整标签库 - APITest Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* 标签库特有样式 */
+        .tag-library-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .tag-category-section {
+            background: white;
+            border-radius: 15px;
+            margin: 30px auto;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+        }
+
+        .tag-category-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .tag-category-title i {
+            color: #667eea;
+            font-size: 1.5rem;
+        }
+
+        .tag-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .tag-table th {
+            background: #f8f9fa;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: #333;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .tag-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+
+        .tag-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .tag-syntax {
+            background: #1e1e1e;
+            color: #4ec9b0;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            display: block;
+            margin: 5px 0;
+        }
+
+        .tag-example {
+            background: #e8f4ff;
+            color: #0066cc;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            border-left: 3px solid #0066cc;
+        }
+
+        .tag-desc {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .search-box {
+            max-width: 600px;
+            margin: 30px auto;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e9ecef;
+            border-radius: 25px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .quick-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 20px 0 40px;
+        }
+
+        .nav-tag {
+            padding: 8px 16px;
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 20px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .nav-tag:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .back-to-home {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .back-to-home:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .tag-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .tag-category-section {
+                margin: 20px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-bolt logo-icon"></i>
+                <span class="brand-name">APITest<span class="brand-highlight">Pro</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="#excel">Excel关联</a>
+                <a href="#random">随机生成</a>
+                <a href="#string">字符串处理</a>
+                <a href="index.html#contact" class="btn-outline">返回首页</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section class="tag-library-hero">
+        <div class="container">
+            <h1>完整的内置标签库</h1>
+            <p>深入了解APITest Pro的所有内置功能标签</p>
+            
+            <!-- 搜索框 -->
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="搜索标签功能..." onkeyup="searchTags()">
+            </div>
+
+            <!-- 快速导航 -->
+            <div class="quick-nav">
+                <a href="#excel" class="nav-tag">Excel数据关联</a>
+                <a href="#random" class="nav-tag">随机数生成</a>
+                <a href="#time" class="nav-tag">时间日期</a>
+                <a href="#string" class="nav-tag">字符串处理</a>
+                <a href="#logic" class="nav-tag">逻辑处理</a>
+                <a href="#special" class="nav-tag">特殊值</a>
+                <a href="#assert" class="nav-tag">断言处理</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Excel数据关联 -->
+    <section id="excel" class="tag-category-section">
+        <div class="container">
+            <div class="tag-category-title">
+                <i class="fas fa-table"></i>
+                <h2>Excel数据关联标签</h2>
+            </div>
+            <table class="tag-table">
+                <thead>
+                    <tr>
+                        <th width="200">标签语法</th>
+                        <th width="300">使用示例</th>
+                        <th>功能描述</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="tag-syntax">(Object)</code></td>
+                        <td><code class="tag-example">(Object)</code></td>
+                        <td class="tag-desc">用作连接作为对象，在Excel数据关联中使用</td>
+                    </tr>
+                    <tr>
+                        <td><code class="tag-syntax">(List)</code></td>
+                        <td><code class="tag-example">(List)</code></td>
+                        <td class="tag-desc">用作连接作为数组，在Excel数据关联中使用</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 随机数生成 -->
+    <section id="random" class="tag-category-section">
+        <div class="container">
+            <div class="tag-category-title">
+                <i class="fas fa-dice"></i>
+                <h2>随机数生成</h2>
+            </div>
+            <table class="tag-table">
+                <thead>
+                    <tr>
+                        <th width="250">标签语法</th>
+                        <th width="300">使用示例</th>
+                        <th>功能描述</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="tag-syntax">(@RandomDigit(pattern)@RandomDigit)</code></td>
+                        <td><code class="tag-example">(@RandomDigit(###.##)@RandomDigit)</code></td>
+                        <td class="tag-desc">根据指定模式生成随机数字，#代表数字占位符</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 时间日期处理 -->
+    <section id="time" class="tag-category-section">
+        <div class="container">
+            <div class="tag-category-title">
+                <i class="fas fa-calendar"></i>
+                <h2>时间日期处理</h2>
+            </div>
+            <table class="tag-table">
+                <thead>
+                    <tr>
+                        <th width="250">标签语法</th>
+                        <th width="300">使用示例</th>
+                        <th>功能描述</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="tag-syntax">(@SystemTime(pattern)@SystemTime)</code></td>
+                        <td>
+                            <code class="tag-example">(@SystemTime(YYYY-MM-DD)@SystemTime)</code>
+                            <div style="margin-top: 5px; font-size: 0.85rem; color: #666;">
+                                常用格式：
+                                <div style="display: flex; flex-wrap: wrap; gap: 5px; margin-top: 5px;">
+                                    <span style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px; font-size: 0.8rem;">YYYY-MM-DD HH:mm:ss</span>
+                                    <span style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px; font-size: 0.8rem;">YYYY/MM/DD</span>
+                                    <span style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px; font-size: 0.8rem;">timestamp</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="tag-desc">
+                            <strong>获取当前系统时间</strong>
+                            <ul style="margin: 8px 0 0 20px; color: #666;">
+                                <li>支持自定义时间格式</li>
+                                <li>返回格式化后的时间字符串</li>
+                                <li>可用于动态生成时间戳</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <!-- 添加更多示例 -->
+            <div class="tag-examples-grid" style="margin-top: 25px; background: #f8f9fa; padding: 20px; border-radius: 8px;">
+                <h4 style="margin-bottom: 15px; color: #333; font-size: 1.1rem;">更多使用示例：</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                    <div class="example-item">
+                        <code style="background: #e8f4ff; padding: 8px 12px; border-radius: 4px; display: block; margin-bottom: 5px; font-family: 'Courier New', monospace; color: #0066cc;">(@SystemTime(YYYY-MM-DD HH:mm:ss)@SystemTime)</code>
+                        <span style="font-size: 0.9rem; color: #666;">→ 2024-01-15 14:30:25</span>
+                    </div>
+                    <div class="example-item">
+                        <code style="background: #e8f4ff; padding: 8px 12px; border-radius: 4px; display: block; margin-bottom: 5px; font-family: 'Courier New', monospace; color: #0066cc;">(@SystemTime(YYYY/MM/DD)@SystemTime)</code>
+                        <span style="font-size: 0.9rem; color: #666;">→ 2024/01/15</span>
+                    </div>
+                    <div class="example-item">
+                        <code style="background: #e8f4ff; padding: 8px 12px; border-radius: 4px; display: block; margin-bottom: 5px; font-family: 'Courier New', monospace; color: #0066cc;">(@SystemTime(timestamp)@SystemTime)</code>
+                        <span style="font-size: 0.9rem; color: #666;">→ 1705329025000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 字符串处理 -->
+    <section id="string" class="tag-category-section">
+        <div class="container">
+            <div class="tag-category-title">
+                <i class="fas fa-font"></i>
+                <h2>字符串处理</h2>
+            </div>
+            <table class="tag-table">
+                <thead>
+                    <tr>
+                        <th width="300">标签语法</th>
+                        <th width="350">使用示例</th>
+                        <th>功能描述</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="tag-syntax">(@RandomLower(pattern)@RandomLower)</code></td>
+                        <td><code class="tag-example">(@RandomLower(###-##)@RandomLower)</code></td>
+                        <td class="tag-desc">根据模式生成随机小写字母，#代表字母占位符</td>
+                    </tr>
+                    <tr>
+                        <td><code class="tag-syntax">(@RandomUpper(pattern)@RandomUpper)</code></td>
+                        <td><code class="tag-example">(@RandomUpper(###-##)@RandomUpper)</code></td>
+                        <td class="tag-desc">根据模式生成随机大写字母，#代表字母占位符</td>
+                    </tr>
+                    <tr>
+                        <td><code class="tag-syntax">(@Hash(targetPath, isHashByValue)@Hash)</code></td>
+                        <td><code class="tag-example">(@Hash(people.name, true)@Hash)</code></td>
+                        <td class="tag-desc">将请求body中指定路径的数据转为Hash值</td>
+                    </tr>
+                    <tr>
+                        <td><code class="tag-syntax">(@Hash1(targetPath, isHash1ByValue)@Hash1)</code></td>
+                        <td><code class="tag-example">(@Hash1(people.name, true)@Hash1)</code></td>
+                        <td class="tag-desc">将请求body中指定路径的数据转为Hash1值</td>
+                    </tr>
+                    <tr>
+                        <td><code class="tag-syntax">(@Hash224(targetPath, isHash224ByValue)@Hash224)</code></td>
+                        <td><code class="tag-example">(@Hash224(people.name, true)@Hash224)</code></td>
+                        <td class="tag-desc">将请求body中指定路径的数据转为Hash224值</td>
+                    </tr>
+                    <tr>
+                        <td><code class="tag-syntax">(@Hash256(targetPath, isHash256ByValue)@Hash256)</code></td>
+                        <td><code class="tag-example">(@Hash256(people.name, true)@Hash256)</code></td>
+                        <td class="tag-desc">将请求body中指定路径的数据转为Hash256值</td>
+                    </tr>
+                    <tr>
+                        <td><code class="tag-syntax">(@Hash384(targetPath, isHash384ByValue)@Hash384)</code></td>
+                        <td><code class="tag-example">(@Hash384(people.name, true)@Hash384)</code></td>
+                        <td class="tag-desc">将请求body中指定路径的数据转为Hash384值</td>
+                    </tr>
+                    <tr>
+                        <td><code class="tag-syntax">(@Hash512(targetPath, isHash512ByValue)@Hash512)</code></td>
+                        <td><code class="tag-example">(@Hash512(people.name, true)@Hash512)</code></td>
+                        <td class="tag-desc">将请求body中指定路径的数据转为Hash512值</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 逻辑处理 -->
+    <section id="logic" class="tag-category-section">
+        <div class="container">
+            <div class="tag-category-title">
+                <i class="fas fa-cogs"></i>
+                <h2>逻辑处理</h2>
+            </div>
+            <table class="tag-table">
+                <thead>
+                    <tr>
+                        <th width="300">标签语法</th>
+                        <th width="400">使用示例</th>
+                        <th>功能描述</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="tag-syntax">(@SameAs(targetPath)@SameAs)</code></td>
+                        <td><code class="tag-example">(@SameAs(people.name)@SameAs)</code></td>
+                        <td class="tag-desc">当前值与请求body中指定路径的值相同</td>
+                    </tr>
+                    <tr>
+                        <td><code class="tag-syntax">(@SaveAs(isNeedUnzip, isNeedBase64Decoded, extension, fileName)@SaveAs)</code></td>
+                        <td><code class="tag-example">(@SaveAs(false, false, json, response)@SaveAs)</code></td>
+                        <td class="tag-desc">将当前返回值保存为文件，支持解压和Base64解码</td>
+                    </tr>
+                    <tr>
+                        <td><code class="tag-syntax">(@File(filePath, inputFormat, outputFormat)@File)</code></td>
+                        <td><code class="tag-example">(@File(request/APICall.json, xml, json)@File)</code></td>
+                        <td class="tag-desc">导入系统路径下的文件内容，支持XML和JSON格式转换</td>
+                    </tr>
+                    <tr>
+                        <td><code class="tag-syntax">(@FromAPIResponse(caseId, position, caseDataPath)@FromAPIResponse)</code></td>
+                        <td><code class="tag-example">(@FromAPIResponse(APICall01, H, people[0].name)@FromAPIResponse)</code></td>
+                        <td class="tag-desc">获取指定测试用例的返回值作为当前测试输入，支持Headers(H)、解密前后返回值</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 特殊值处理 -->
+    <section id="special" class="tag-category-section">
+        <div class="container">
+            <div class="tag-category-title">
+                <i class="fas fa-star"></i>
+                <h2>特殊值处理</h2>
+            </div>
+            <table class="tag-table">
+                <thead>
+                    <tr>
+                        <th width="200">标签语法</th>
+                        <th width="200">使用示例</th>
+                        <th>功能描述</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="tag-syntax">(Null)</code></td>
+                        <td><code class="tag-example">(Null)</code></td>
+                        <td class="tag-desc">设置null值</td>
+                    </tr>
+                    <tr>
+                        <td><code class="tag-syntax">(Blank)</code></td>
+                        <td><code class="tag-example">(Blank)</code></td>
+                        <td class="tag-desc">设置空值</td>
+                    </tr>
+                    <tr>
+                        <td><code class="tag-syntax">(@Attachment(targetPath)@Attachment)</code></td>
+                        <td><code class="tag-example">(@Attachment(request/apiCall/request.zip)@Attachment)</code></td>
+                        <td class="tag-desc">使用指定目录下的文件作为附件</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 断言处理 -->
+    <section id="assert" class="tag-category-section">
+        <div class="container">
+            <div class="tag-category-title">
+                <i class="fas fa-check-circle"></i>
+                <h2>断言处理</h2>
+            </div>
+            <table class="tag-table">
+                <thead>
+                    <tr>
+                        <th width="200">标签语法</th>
+                        <th width="300">使用示例</th>
+                        <th>功能描述</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="tag-syntax">(NotNull)</code></td>
+                        <td><code class="tag-example">(NotNull)</code></td>
+                        <td class="tag-desc">断言值不为null</td>
+                    </tr>
+                    <tr>
+                        <td><code class="tag-syntax">(@Match(expectedValue, positionMatch)@Match)</code></td>
+                        <td><code class="tag-example">(@Match(123, A)@Match)</code></td>
+                        <td class="tag-desc">指定匹配字符串和位置（L-左匹配、R-右匹配、A-任意匹配）</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 返回首页 -->
+    <section style="text-align: center; padding: 50px 0;">
+        <div class="container">
+            <a href="index.html" class="back-to-home">
+                <i class="fas fa-arrow-left"></i> 返回首页
+            </a>
+        </div>
+    </section>
+
+    <script>
+        // 标签搜索功能
+        function searchTags() {
+            const input = document.querySelector('.search-input');
+            const filter = input.value.toLowerCase();
+            const sections = document.querySelectorAll('.tag-category-section');
+            
+            sections.forEach(section => {
+                const rows = section.querySelectorAll('tbody tr');
+                let hasMatch = false;
+                
+                rows.forEach(row => {
+                    const text = row.textContent.toLowerCase();
+                    if (text.includes(filter)) {
+                        row.style.display = '';
+                        hasMatch = true;
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+                
+                // 显示/隐藏整个分类区域
+                section.style.display = hasMatch ? 'block' : 'none';
+            });
+        }
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 复制标签代码
+        document.querySelectorAll('.tag-syntax').forEach(code => {
+            code.addEventListener('click', function() {
+                const text = this.textContent;
+                navigator.clipboard.writeText(text).then(() => {
+                    const originalText = this.textContent;
+                    this.textContent = '已复制！';
+                    this.style.background = '#4caf50';
+                    this.style.color = 'white';
+                    
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                        this.style.background = '';
+                        this.style.color = '';
+                    }, 1500);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
