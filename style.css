@@ -298,6 +298,26 @@ body {
     margin-bottom: 1rem;
 }
 
+/* 添加更平滑的动画效果 */
+.feature-card, .step, .download-card, .overview-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform, opacity;
+}
+
+/* 优化悬停效果与动画的兼容性 */
+.feature-card:hover, .step:hover, .download-card:hover, .overview-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* 确保动画不会影响悬停效果 */
+.feature-card.animate-in:hover, 
+.step.animate-in:hover, 
+.download-card.animate-in:hover, 
+.overview-card.animate-in:hover {
+    animation-play-state: paused;
+}
+
 .format-tags {
     display: flex;
     gap: 0.5rem;
@@ -1213,4 +1233,23 @@ body {
     .example-input code, .example-output code {
         width: 100%;
     }
+
+    /* 在小屏幕上减少动画延迟，让卡片更快出现 */
+    .feature-card:nth-child(n) {
+        --animation-delay: calc(var(--card-index, 0) * 0.03s) !important;
+    }
+    
+    .overview-card:nth-child(n) {
+        --animation-delay: calc(var(--card-index, 0) * 0.04s) !important;
+    }
+}
+
+/* 添加加载状态指示器（可选） */
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+.loading-placeholder {
+    animation: pulse 1.5s ease-in-out infinite;
 }
