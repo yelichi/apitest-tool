@@ -11,6 +11,27 @@
 5. **性能测试** - 内置性能测试功能
 6. **HTML报告** - 生成美观的测试报告
 7. **格式转换** - 支持多种格式互转
+-支持单向格式转换，确保测试配置一致性：
+**支持的转换方向：**
+- Excel (.xlsx) → JSON (.json)
+- 将结构化的Excel测试用例转换为JSON格式
+- 命令：apitest convert input.xlsx output.json
+- Excel (.xlsx) → ZIP (.zip)
+- 将Excel文件打包为ZIP格式，便于批量处理
+- 命令：apitest convert input.xlsx output.zip
+- JSON (.json) → ZIP (.zip)
+- 将JSON配置文件打包为ZIP格式，便于分发
+- 命令：apitest convert input.json output.zip
+**转换限制：**
+- 不支持反向转换（JSON/ZIP 转 Excel）
+- 设计考虑：测试配置应为单向流程，确保数据一致性
+- 推荐工作流：使用Excel作为源文件，生成测试配置后不再逆向
+
+**设计理念：**
+- 保持测试配置的单一来源
+- 避免格式转换过程中的数据丢失
+- 简化测试配置管理
+
 8. **灵活扩展** - 模块化设计，支持插件
 
 ## 内置标签库

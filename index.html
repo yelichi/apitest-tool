@@ -145,14 +145,31 @@
                     <p>生成美观的HTML测试报告，直观展示测试结果和统计信息</p>
                 </div>
                 
-                <!-- 功能7 -->
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-exchange-alt"></i>
-                    </div>
-                    <h3>格式转换</h3>
-                    <p>支持JSON、Excel、ZIP格式互转，灵活适应不同工作流程</p>
-                </div>
+                <!-- 功能7：格式转换 -->
+                  <div class="feature-card">
+                      <div class="feature-icon">
+                          <i class="fas fa-exchange-alt"></i>
+                      </div>
+                      <h3>格式转换</h3>
+                      <p>支持单向格式转换：Excel → JSON/ZIP 和 JSON → ZIP</p>
+                      <div class="conversion-flow">
+                          <div class="conversion-item">
+                              <span class="source-format">Excel</span>
+                              <i class="fas fa-arrow-right"></i>
+                              <span class="target-format json">JSON</span>
+                          </div>
+                          <div class="conversion-item">
+                              <span class="source-format">Excel</span>
+                              <i class="fas fa-arrow-right"></i>
+                              <span class="target-format zip">ZIP</span>
+                          </div>
+                          <div class="conversion-item">
+                              <span class="source-format json">JSON</span>
+                              <i class="fas fa-arrow-right"></i>
+                              <span class="target-format zip">ZIP</span>
+                          </div>
+                      </div>
+                  </div>
                 
                 <!-- 功能8 -->
                 <div class="feature-card">
@@ -226,6 +243,92 @@
                                 <code class="tag-code">(@Hash512(targetPath, isHash512ByValue)@Hash512)</code>
                                 <span class="tag-desc">请求body数据转为Hash512值</span>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 格式转换详细说明 -->
+    <section class="conversion-section">
+        <div class="container">
+            <h2 class="section-title">格式转换详细说明</h2>
+            <p class="section-subtitle">单向转换确保数据完整性和测试一致性</p>
+            
+            <div class="conversion-detail">
+                <div class="conversion-card">
+                    <div class="conversion-icon">
+                        <i class="fas fa-file-excel"></i>
+                        <i class="fas fa-arrow-right arrow-icon"></i>
+                        <i class="fas fa-file-code"></i>
+                    </div>
+                    <h3>Excel 转 JSON</h3>
+                    <p>将结构化的Excel测试用例转换为JSON格式，便于API自动化测试</p>
+                    <div class="command-example">
+                        <code>apitest convert input.xlsx output.json</code>
+                    </div>
+                </div>
+                
+                <div class="conversion-card">
+                    <div class="conversion-icon">
+                        <i class="fas fa-file-excel"></i>
+                        <i class="fas fa-arrow-right arrow-icon"></i>
+                        <i class="fas fa-file-archive"></i>
+                    </div>
+                    <h3>Excel 转 ZIP</h3>
+                    <p>将包含多个测试用例的Excel文件打包为ZIP格式，方便批量处理</p>
+                    <div class="command-example">
+                        <code>apitest convert input.xlsx output.zip</code>
+                    </div>
+                </div>
+                
+                <div class="conversion-card">
+                    <div class="conversion-icon">
+                        <i class="fas fa-file-code"></i>
+                        <i class="fas fa-arrow-right arrow-icon"></i>
+                        <i class="fas fa-file-archive"></i>
+                    </div>
+                    <h3>JSON 转 ZIP</h3>
+                    <p>将JSON测试配置文件打包为ZIP格式，便于分发和存储</p>
+                    <div class="command-example">
+                        <code>apitest convert input.json output.zip</code>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="conversion-limitations">
+                <h4><i class="fas fa-exclamation-triangle"></i> 转换限制说明</h4>
+                <ul>
+                    <li><strong>不支持反向转换：</strong>JSON/ZIP 无法转回 Excel 格式</li>
+                    <li><strong>设计考虑：</strong>测试配置应为单向流程，确保数据一致性</li>
+                    <li><strong>推荐工作流：</strong>使用Excel作为源文件，生成测试配置后不再逆向</li>
+                    <li><strong>数据完整性：</strong>单向转换避免格式转换过程中的数据丢失</li>
+                </ul>
+            </div>
+            
+            <div class="conversion-workflow">
+                <h4><i class="fas fa-project-diagram"></i> 推荐工作流程</h4>
+                <div class="workflow-steps">
+                    <div class="workflow-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h5>Excel设计阶段</h5>
+                            <p>使用Excel设计测试用例，利用表格优势进行结构化设计</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h5>转换执行阶段</h5>
+                            <p>将Excel转换为JSON或ZIP格式，用于自动化测试</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h5>自动化测试</h5>
+                            <p>使用生成的JSON/ZIP文件执行API自动化测试</p>
                         </div>
                     </div>
                 </div>
@@ -582,23 +685,29 @@ export PATH=$PATH:$(pwd)/bin</code></pre>
               </div>
                 
               <div class="step">
-                  <div class="step-number">3</div>
-                  <div class="step-content">
-                      <h3>运行测试</h3>
-                      <p>执行命令开始测试</p>
-                      <pre><code class="language-bash"># 基本测试
-apitest run config.json
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>格式转换命令</h3>
+                    <p>支持单向格式转换，确保测试配置一致性</p>
+                    <pre><code class="language-bash"># Excel 转 JSON
+            apitest convert testcases.xlsx config.json
 
-# 性能测试模式
-apitest run config.json --performance
+            # Excel 转 ZIP (打包多个测试用例)
+            apitest convert testcases.xlsx testcases.zip
 
-# 指定输出目录
-apitest run config.json --output ./reports
+            # JSON 转 ZIP (打包配置)
+            apitest convert config.json config.zip
 
-# 格式转换
-apitest convert input.json output.xlsx</code></pre>
-                  </div>
-              </div>
+            # 查看转换帮助
+            apitest convert --help
+
+            # 支持的转换类型：
+            # 1. Excel (.xlsx) → JSON (.json)
+            # 2. Excel (.xlsx) → ZIP (.zip) 
+            # 3. JSON (.json) → ZIP (.zip)
+            # 注意：不支持反向转换（JSON/ZIP 转 Excel）</code></pre>
+                </div>
+            </div>
             </div>
         </div>
     </section>
@@ -673,7 +782,7 @@ apitest convert input.json output.xlsx</code></pre>
                 </a>
                 <p class="contact-email">
                     有问题或建议？联系: 
-                    <a href="mailto:support@apitestpro.dev">support@apitestpro.dev</a>
+                    <a href="mailto:api_test_support@126.com">api_test_support@126.com</a>
                 </p>
             </div>
         </div>
@@ -690,9 +799,9 @@ apitest convert input.json output.xlsx</code></pre>
                 <div class="footer-links">
                     <a href="#features">功能</a>
                     <a href="#usage">文档</a>
-                    <a href="https://github.com/yourusername/apitest-pro" target="_blank">
+                    <!-- <a href="https://github.com/yourusername/apitest-pro" target="_blank">
                         <i class="fab fa-github"></i> GitHub
-                    </a>
+                    </a> -->
                     <a href="#contact">支持</a>
                 </div>
                 <p class="copyright">© 2024 APITest Pro. 专为开发者打造的API测试工具</p>

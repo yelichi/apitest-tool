@@ -1121,6 +1121,235 @@ body {
     color: #217346;
 }
 
+/* 格式转换相关样式 */
+.conversion-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.conversion-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.conversion-item .source-format,
+.conversion-item .target-format {
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.source-format {
+    background: #e8f4ff;
+    color: #0066cc;
+}
+
+.target-format.json {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.target-format.zip {
+    background: #d4edda;
+    color: #155724;
+}
+
+.conversion-item .fa-arrow-right {
+    color: #6c757d;
+    font-size: 0.8rem;
+}
+
+/* 格式转换详细说明区域 */
+.conversion-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.conversion-detail {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.conversion-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+}
+
+.conversion-card:hover {
+    transform: translateY(-5px);
+}
+
+.conversion-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.conversion-icon i.fa-file-excel {
+    color: #217346;
+}
+
+.conversion-icon i.fa-file-code {
+    color: #f1502f;
+}
+
+.conversion-icon i.fa-file-archive {
+    color: #6c757d;
+}
+
+.conversion-icon .arrow-icon {
+    color: #667eea;
+    font-size: 1.5rem;
+}
+
+.conversion-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.conversion-card p {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.command-example {
+    background: #1e1e1e;
+    border-radius: 6px;
+    padding: 12px 15px;
+    margin-top: 15px;
+}
+
+.command-example code {
+    color: #4ec9b0;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    word-break: break-all;
+}
+
+/* 转换限制说明 */
+.conversion-limitations {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 40px 0;
+}
+
+.conversion-limitations h4 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    color: #856404;
+}
+
+.conversion-limitations h4 i {
+    color: #ffc107;
+}
+
+.conversion-limitations ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.conversion-limitations li {
+    padding: 8px 0;
+    color: #856404;
+    position: relative;
+    padding-left: 25px;
+}
+
+.conversion-limitations li:before {
+    content: "•";
+    color: #ffc107;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+}
+
+/* 工作流程 */
+.conversion-workflow {
+    margin-top: 50px;
+}
+
+.conversion-workflow h4 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 1.3rem;
+}
+
+.conversion-workflow h4 i {
+    color: #667eea;
+}
+
+.workflow-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.workflow-step {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    border: 2px solid #e9ecef;
+    transition: all 0.3s;
+}
+
+.workflow-step:hover {
+    border-color: #667eea;
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.1);
+}
+
+.workflow-step .step-number {
+    width: 40px;
+    height: 40px;
+    background: #667eea;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.workflow-step h5 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.workflow-step p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
     .nav-links {
@@ -1241,6 +1470,23 @@ body {
     
     .overview-card:nth-child(n) {
         --animation-delay: calc(var(--card-index, 0) * 0.04s) !important;
+    }
+
+    .conversion-detail {
+        grid-template-columns: 1fr;
+    }
+    
+    .workflow-steps {
+        grid-template-columns: 1fr;
+    }
+    
+    .conversion-item {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+    }
+    
+    .conversion-card {
+        padding: 20px;
     }
 }
 
